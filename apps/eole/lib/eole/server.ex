@@ -5,15 +5,15 @@ defmodule Eole.Server do
   defstruct [:accounts]
 
   def start_link do
-    GenServer.start_link(__MODULE__, %__MODULE__{accounts: %{}}, [])
+    GenServer.start_link(__MODULE__, %__MODULE__{accounts: %{}}, name: :server)
   end
 
-  def debit(pid, params) do
-    GenServer.call(pid, {:debit, params})
+  def debit(params) do
+    GenServer.cast(:server, {:debit, params})
   end
 
-  def handle_call({:debit, params}, _pid, state) do
+  def handle_cast({:debit, params}, state) do
     accounts = Account.debit(state.accounts, params)
-    {:reply, {:ok, "Debited"}, %__MODULE__{state | accounts: accounts}}
+    {:noreply, %__MODULE__{state | accounts: accounts}}
   end
 end
