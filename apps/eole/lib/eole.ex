@@ -4,19 +4,6 @@ defmodule Eole do
   """
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Eole.hello
-      :world
-
-  """
-  def hello do
-    :world
-  end
-
-  @doc """
   Create a new debit and add it to the corresponding account
 
   ## Examples
