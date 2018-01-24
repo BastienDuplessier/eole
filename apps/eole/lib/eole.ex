@@ -21,7 +21,7 @@ defmodule Eole do
 
   ## Examples
 
-      iex> Eole.debit(%{iban: "GB87BARC20658244971655", amount: 1000
+      iex> Eole.debit(%{iban: "GB87BARC20658244971655", amount: 1000})
       :ok
 
   """
