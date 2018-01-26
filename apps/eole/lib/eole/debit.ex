@@ -1,4 +1,8 @@
 defmodule Eole.Debit do
+  @moduledoc """
+  Documentation for Eole.Debit.
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -8,6 +12,10 @@ defmodule Eole.Debit do
     field :time, :time
   end
 
+  @doc """
+  Build a new debit
+
+  """
   def build(params) do
     changeset = changeset(params)
 
